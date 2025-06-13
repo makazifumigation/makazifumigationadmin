@@ -30,6 +30,7 @@ export default function Home() {
   return (
     <main>
       <Hero contentData={contentData} fetchContentData={fetchContentData} />
+
       <AddBlog contentData={contentData} fetchContentData={fetchContentData} />
     </main>
   );
