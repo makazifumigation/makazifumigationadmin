@@ -9,6 +9,7 @@ import {
   slideInLeft,
   slideInRight,
 } from "@/utils/animations";
+import emailjs from "@emailjs/browser";
 
 const page = () => {
   const [formData, setFormData] = useState({
@@ -23,22 +24,25 @@ const page = () => {
     e.preventDefault();
     setStatus("loading");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    emailjs
+      .send(
+        "service_jq824zq", // e.g., service_abc123
+        "template_db0q5yl", // e.g., template_xyz456
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
         },
-        body: JSON.stringify(formData),
+        "Teup0NAXNHEYcGI6N" // e.g., Y0URPUBL1CK3Y
+      )
+      .then(() => {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error(error);
+        setStatus("error");
       });
-
-      if (!response.ok) throw new Error("Failed to send message");
-
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-    } catch {
-      setStatus("error");
-    }
   };
 
   const handleChange = (e) => {

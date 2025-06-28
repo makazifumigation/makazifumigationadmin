@@ -96,6 +96,7 @@ const Hero = ({ contentData, fetchContentData }) => {
         const docRef = await addDoc(projectRef, {
           project_title: projectTitle.trim(),
           project_description: projectDesc.trim(),
+          project_destination: destinationLink.trim(),
           project_image: "",
           project_submitted_time: serverTimestamp(),
           project_visibility: true,
