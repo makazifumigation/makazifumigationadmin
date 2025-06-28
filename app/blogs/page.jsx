@@ -15,7 +15,7 @@ const page = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Blog Posts
+        Blog Postsx
       </motion.h1>
 
       <motion.div

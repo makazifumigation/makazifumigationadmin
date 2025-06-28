@@ -12,6 +12,7 @@ import Image from "next/image";
 
 export default function Home() {
   const { contentData, fetchContentData } = UserAuth();
+  const language = "en";
 
   if (!contentData) {
     return (
@@ -32,6 +33,8 @@ export default function Home() {
       <Hero contentData={contentData} fetchContentData={fetchContentData} />
 
       <AddBlog contentData={contentData} fetchContentData={fetchContentData} />
+      <Projects language={language} />
+      <Blogs language={language} />
     </main>
   );
 }
