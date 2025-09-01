@@ -32,9 +32,9 @@ export default function Home() {
     <main>
       <Hero contentData={contentData} fetchContentData={fetchContentData} />
 
-      <AddBlog contentData={contentData} fetchContentData={fetchContentData} />
+      {/* <AddBlog contentData={contentData} fetchContentData={fetchContentData} /> */}
       <Projects language={language} />
-      <Blogs language={language} />
+      {/* <Blogs language={language} /> */}
     </main>
   );
 }
