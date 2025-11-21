@@ -1,26 +1,40 @@
 @import "tailwindcss";
+@import "quill/dist/quill.snow.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-primary: #5bad6a;
+    --color-primary-dark: #3d8f4d;
+    --color-secondary: #1a1a1a;
+    --color-muted: #6d6d6d;
+    --color-border: #e7e7e7;
+    --color-surface: #f6f6f6;
+  }
+
+  * {
+    @apply border-[#e7e7e7];
+  }
+
+  body {
+    @apply bg-white text-[#1a1a1a] antialiased;
+    font-family: system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-[#1a1a1a];
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .container-custom {
+    @apply mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .section-compact {
+    @apply py-12 md:py-16 lg:py-20;
+  }
 }
